@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUSICDECK — MK.I</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="chassis">
+
+  <!-- NAMEPLATE -->
+  <header class="nameplate">
+    <div class="rivet tl"></div>
+    <div class="rivet tr"></div>
+    <div class="brand">
+      <span class="brand-mark">MUSICDECK</span>
+      <span class="brand-sub">MODEL MK.I &nbsp;·&nbsp; YT MUSIC + LRCLIB</span>
+    </div>
+    <div class="vu-pair" id="vuPair">
+      <div class="vu-meter">
+        <div class="vu-label">L</div>
+        <div class="vu-track"><div class="vu-needle" id="vuL"></div></div>
+      </div>
+      <div class="vu-meter">
+        <div class="vu-label">R</div>
+        <div class="vu-track"><div class="vu-needle" id="vuR"></div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TUNER / SEARCH -->
+  <section class="tuner-panel">
+    <div class="panel-label">CARI LAGU</div>
+    <form id="searchForm" class="tuner-row">
+      <input id="searchInput" type="text" placeholder="judul lagu atau artis..." autocomplete="off" />
+      <button type="submit" class="btn-deck">SCAN</button>
+    </form>
+    <div id="statusLine" class="status-line">— siap —</div>
+  </section>
+
+  <main class="deck-body">
+
+    <!-- TRACKLIST -->
+    <section class="panel tracklist-panel">
+      <div class="panel-label">HASIL PENCARIAN</div>
+      <ol id="trackList" class="tracklist"></ol>
+    </section>
+
+    <!-- NOW PLAYING + LYRICS -->
+    <section class="panel nowplaying-panel">
+      <div class="panel-label">SEDANG DIPUTAR</div>
+
+      <div class="np-display">
+        <img id="npArt" class="np-art" src="" alt="" />
+        <div class="np-meta">
+          <div class="np-title" id="npTitle">— tidak ada trek —</div>
+          <div class="np-artist" id="npArtist">&nbsp;</div>
+          <div class="np-tape" id="npTape"><div class="np-tape-fill" id="npTapeFill"></div></div>
+        </div>
+      </div>
+
+      <div id="ytPlayer"></div>
+
+      <div class="transport">
+        <button id="btnPlay" class="btn-deck btn-round" title="Play/Pause">▶</button>
+        <button id="btnStop" class="btn-deck btn-round" title="Stop">■</button>
+        <input id="seek" type="range" min="0" max="100" value="0" class="seek" />
+        <span id="timeLabel" class="time-label">00:00 / 00:00</span>
+      </div>
+
+      <div class="panel-label lyrics-label">LIRIK <span id="lyricsSource" class="lyrics-source"></span></div>
+      <div id="lyricsBox" class="lyrics-box">pilih lagu buat nampilin lirik di sini.</div>
+    </section>
+
+  </main>
+
+  <footer class="footer-strip">
+    <span class="footer-note">audio diputar via YouTube IFrame Player resmi &nbsp;·&nbsp; lirik via LRCLIB</span>
+  </footer>
+
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="app.js"></script>
+</body>
+</html>
